@@ -35,7 +35,7 @@ def case2(n, g):
 def case3(n, g):
     ret = "[" + str(n) + "," + str(n+1) + "," + str(n+2) + ","\
     + str(n+3+g) + "," + str(n+4+g) + "]"
-    #print(ret)
+    print(ret)
     if (n+g+5)<101:
         return 1 + case3(n, g+1)
     elif (g != 1):
