@@ -23,9 +23,9 @@ def case2(n, g):
     ret = "[" + str(n) + "," + str(n+1) + ","
     for i in range(n+g+2, n+g+4):
         ret = ret + str(i) + ","
-    ret = ret + str(n+g+5)+"]"
+    ret = ret + str(n+g+4)+"]"
     #print(ret)
-    if (n+g+6)<101:
+    if (n+g+5)<101:
         return 1 + case2(n, g+1)
     elif (g != 1):
         return 1 + case2(n + 1, 1)
@@ -35,7 +35,7 @@ def case2(n, g):
 def case3(n, g):
     ret = "[" + str(n) + "," + str(n+1) + "," + str(n+2) + ","\
     + str(n+3+g) + "," + str(n+4+g) + "]"
-    print(ret)
+    #print(ret)
     if (n+g+5)<101:
         return 1 + case3(n, g+1)
     elif (g != 1):
@@ -43,8 +43,10 @@ def case3(n, g):
     else:
         return 1
 
-
-print("Total for Case 1: " + str(case1(1)))
-print("Total for Case 2: " + str(case2(1,1)))
-print("Total for Case 3: " + str(case3(1,1)))
-
+c1 = case1(1)
+c2 = case2(1,1)
+c3 = case3(1,1)
+print("Total for Case 1: " + str(c1))
+print("Total for Case 2: " + str(c2))
+print("Total for Case 3: " + str(c3))
+print("Total: " + str(c1+c2+c3))
