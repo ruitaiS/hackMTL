@@ -25,14 +25,15 @@ Q3. Write a program that verifies if a string S is valid.
 
 If we can prove that every unique binary square matrix of a given size 2^n has a unique mapping, then this question reduces to finding the number of possible binary square matrices of size 2^n = 16.
 
+(Note that we are not saying that for every S string there exists a unique matrix - this is easily disproven, as every zero matrix and every matrix of ones will be mapped to S = 0 and S = 1, respectively. Rather we are proving that for a given size 2^n, every unique binary matrix of that size will have a unique S string)
+
 #### Proof By Induction:
-(Note that this is not a proof that for every S string there exists a unique matrix - this is easily disproven, as every zero matrix and every matrix of ones will be mapped to S = 1 and S = 0, respectively. Rather we are trying to show that for a given size 2^n, every possible binary matrix of that size will have a unique S string)
 
 For n = 0, the matrix only has one element, 1 or 0, which is uniquely mapped to S = 1 or S = 0
 
-For any matrix of size n, assuming that matrices of size 2^(n-1) have a unique mapping:
+For any matrix of size 2^n, assuming that matrices of size 2^(n-1) have a unique mapping:
   * If the matrix is comprised of all 1's or 0's, then it will be uniquely mapped to S = 1 or S = 0, respectively
-  * Otherwise the matrix will be mapped to S = 2 S1 S2 S3 S4, where S1-S4 are the unique mappings its component 2^(n-1) size submatrices. S1-S4 are unique mappings by assumption, and the ordering of them within S is unique, so therefore S itself must also be unique.
+  * Otherwise the matrix will be mapped to S = 2 S1 S2 S3 S4, where S1-S4 are the unique mappings of its component 2^(n-1) size submatrices. S1-S4 are unique mappings by assumption, and the ordering of them within S is unique, so therefore S itself must also be unique.
   
 ---
 #### Q2/Q3:
