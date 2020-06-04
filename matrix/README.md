@@ -9,8 +9,11 @@ S = 2 S1 S2 S3 S4
 Q1. For a 16 x 16 matrix, how many corresponding S strings can we have?
 
 Q2. Which one of the following is a valid S?
+
 a) 2 0 1 0 2 1 0 2 1 0 1 0 1 0
+
 b) 2 1 1 2 0 0 2 0 0 0 0 0 1
+
 c) 2 0 2 2 1 1 1 0 1 1 1 1 1
 
 Q3. Write a program that verifies if a string S is valid.
@@ -18,7 +21,9 @@ Q3. Write a program that verifies if a string S is valid.
 ---
 ## Answers:
 
-Q1: If we can prove that every unique binary square matrix of a given size 2^n has a unique mapping, then this question reduces to finding the number of possible binary square matrices of size 2^n.
+#### Q1: 
+
+If we can prove that every unique binary square matrix of a given size 2^n has a unique mapping, then this question reduces to finding the number of possible binary square matrices of size 2^n = 16.
 
 #### Proof By Induction:
 (Note that this is not a proof that for every S string there exists a unique matrix - this is easily disproven, as every zero matrix and every matrix of ones will be mapped to S = 1 and S = 0, respectively. Rather we are trying to show that for a given size 2^n, every possible binary matrix of that size will have a unique S string)
@@ -30,9 +35,10 @@ For any matrix of size n, assuming that matrices of size 2^(n-1) have a unique m
   * Otherwise the matrix will be mapped to S = 2 S1 S2 S3 S4, where S1-S4 are the unique mappings its component 2^(n-1) size submatrices. S1-S4 are unique mappings by assumption, and the ordering of them within S is unique, so therefore S itself must also be unique.
   
 ---
+#### Q2/Q3:
 
-
-
+If the string does not start with a 2, it must be a single digit binary, otherwise it is invalid.
+If we see a 2, it should be immediately followed by four binary digits (the simplest possible S1-S4 strings), unless there is a 2. In such cases, the 2 can be thought of as "replacing" one of those four, since it represents the start of a non-binary S substring. Therefore a 2 at the start of the string means we expect to see four more binary digits, but a 2 in mid-string means we expect only *three* additional binary digits.
 
 
 
