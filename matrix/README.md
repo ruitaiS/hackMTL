@@ -37,8 +37,18 @@ For any matrix of size n, assuming that matrices of size 2^(n-1) have a unique m
 ---
 #### Q2/Q3:
 
-If the string does not start with a 2, it must be a single digit binary, otherwise it is invalid.
-If we see a 2, it should be immediately followed by four binary digits (the simplest possible S1-S4 strings), unless there is a 2. In such cases, the 2 can be thought of as "replacing" one of those four, since it represents the start of a non-binary S substring. Therefore a 2 at the start of the string means we expect to see four more binary digits, but a 2 in mid-string means we expect only *three* additional binary digits.
+a) False
+
+b) True
+
+c) True
+
+
+* To start, we expect to see a single S string.
+* When we encounter a 1 or a 0, we reduce the number of expected S strings by 1
+* When we encounter a 2, we increase the number of expected S strings by *3*, because the 2 represents the start of a new S string (-1 to the count) but we expect it to be followed by 4 more S strings (-1 + 4 = 3)
+* By the end of the input string we expect the count to be 0 if the input was valid
+
 
 
 
