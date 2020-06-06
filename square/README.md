@@ -5,7 +5,8 @@ For this question: one of vertices of square holds {1, 2}.
 ---
 ## Answer:
 
-* generate other points on the square as a function of where the second vertex is placed
-* generate a list of possible squares, using all possible (x,y) where the second vertex might be
-* cull the list for squares that have points outside of 1-10 range
-* check fulfillment of constraints for adjacent / opposite points
+Since the first vertex is already given to us, we can write a function that will generate the remaining vertices of the square based on where we place our second vertex. I've included a sketch showing how this is done.
+
+From there I took the brute force approach of generating all possible squares with x and y within {1, ... 10}, and then culling that list for squares with vertices outside of that range, or with opposite / adjacent vertices which did not fulfill the requirements listed above.
+
+There's no doubt a smarter / more elegant way to go about doing this, but hey, a computer is basically a giant calculator and I may as well use it, right? :)
