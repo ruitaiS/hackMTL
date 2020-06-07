@@ -36,10 +36,7 @@ def getList():
         for j in range(1,11):
             sq = getPoints(i, j)
             if include(sq):
-                sqList.append(getPoints(i,j))
-            
-
-
+                sqList.append(sq)
     for sq in sqList:
         print(sq)
         print("\n")
