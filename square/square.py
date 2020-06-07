@@ -6,7 +6,7 @@ def p3(x,y):
     return (p2x+1-x, p2y+2- y)
 
 def getPoints(x,y):
-    return ((1,2), (x,y), p2(x,y), p3(x,y))
+    return [(1,2), (x,y), p2(x,y), p3(x,y)]
 
 def checkAdj(a, b):
     if (a[0] == a[1]) or (b[0]==b[1]): return false
@@ -17,10 +17,32 @@ def checkOpp(a, b):
     for p in pList:
         if pList.count(p) > 1: return false
     return true
-    
 
-#print("P2: " + str(p2(2,1)))
-#print("P3: " + str(p3(2,1)))
+adjPoints = [(0,1), (1,2), (2,3), (3,0)]
+oppPoints = [(0,2), (1,3)]
 
-for i in getPoints(2,1):
-    print(i)
+def include(sq):
+    for p in sq:
+        if (p[0]<1) or (p[1]<1) or (p[0]>10) or (p[1]>10) : return false
+    for (a,b) in adjPoints:
+        if not checkAdj(p[a],p[b]) : return false
+    for (a,b) in oppPoints:
+        if not checkOpp(p[a],p[b]) : return false
+    return true
+
+def getList():
+    sqList = [] 
+    for i in range(1, 11):
+        for j in range(1,11):
+            sq = getPoints(i, j)
+            if include(sq):
+                sqList.append(getPoints(i,j))
+            
+
+
+    for sq in sqList:
+        print(sq)
+        print("\n")
+
+
+getList()
