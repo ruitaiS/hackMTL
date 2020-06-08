@@ -23,11 +23,17 @@ oppPoints = [(0,2), (1,3)]
 
 def include(sq):
     for p in sq:
-        if (p[0]<1) or (p[1]<1) or (p[0]>10) or (p[1]>10) : return False
+        if (p[0]<1) or (p[1]<1) or (p[0]>10) or (p[1]>10) :
+            print("Rejected " + str(sq) + " - Out of Range")
+            return False
     for (a,b) in adjPoints:
-        if not checkAdj(sq[a],sq[b]) : return False
+        if not checkAdj(sq[a],sq[b]) : 
+            print("Rejected " + str(sq) + " - Adjacency Constraint")
+            return False
     for (a,b) in oppPoints:
-        if not checkOpp(sq[a],sq[b]) : return False
+        if not checkOpp(sq[a],sq[b]) : 
+            print("Rejected " + str(sq) + " - Opposite Constraint")
+            return False
     return True
 
 def getList():
@@ -37,9 +43,10 @@ def getList():
             sq = getPoints(i, j)
             if include(sq):
                 sqList.append(sq)
+    print("\n")
     for sq in sqList:
         print(sq)
-        print("\n")
-
+    print("\n")
+    print("Total Squares: " + str(len(sqList)))
 
 getList()
